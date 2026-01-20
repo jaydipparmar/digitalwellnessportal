@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Digital Wellness Healthcare Color Palette */
+    --background: 80 68% 94%; /* #F5FBE6 - Soft cream */
+    --foreground: 205 38% 15%; /* Dark text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 205 38% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 38% 15%;
+
+    --primary: 182 49% 25%; /* #215E61 - Teal */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 205 38% 22%; /* #233D4D - Dark blue-gray */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 25 99% 59%; /* #FE7F2D - Warm orange */
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 80 30% 90%;
+    --muted-foreground: 205 20% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 182 20% 85%;
+    --input: 182 20% 85%;
+    --ring: 182 49% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom Healthcare Tokens */
+    --wellness-gradient: linear-gradient(135deg, hsl(182 49% 25%), hsl(182 49% 35%));
+    --card-shadow: 0 4px 20px -4px hsl(205 38% 22% / 0.1);
+    --card-shadow-hover: 0 8px 30px -4px hsl(205 38% 22% / 0.15);
+    --hero-gradient: linear-gradient(180deg, hsl(80 68% 94%) 0%, hsl(80 50% 90%) 100%);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 205 38% 22%;
+    --sidebar-primary: 182 49% 25%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 80 68% 94%;
+    --sidebar-accent-foreground: 205 38% 22%;
+    --sidebar-border: 182 20% 90%;
+    --sidebar-ring: 182 49% 25%;
+  }
+
+  .dark {
+    --background: 205 38% 10%;
+    --foreground: 80 68% 94%;
+
+    --card: 205 38% 15%;
+    --card-foreground: 80 68% 94%;
+
+    --popover: 205 38% 15%;
+    --popover-foreground: 80 68% 94%;
+
+    --primary: 182 49% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 205 38% 25%;
+    --secondary-foreground: 80 68% 94%;
+
+    --accent: 25 99% 59%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 205 38% 20%;
+    --muted-foreground: 80 30% 70%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 205 38% 25%;
+    --input: 205 38% 25%;
+    --ring: 182 49% 45%;
+
+    --sidebar-background: 205 38% 12%;
+    --sidebar-foreground: 80 68% 94%;
+    --sidebar-primary: 182 49% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 205 38% 18%;
+    --sidebar-accent-foreground: 80 68% 94%;
+    --sidebar-border: 205 38% 20%;
+    --sidebar-ring: 182 49% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer components {
+  .wellness-card {
+    @apply bg-card rounded-2xl p-6 transition-all duration-300;
+    box-shadow: var(--card-shadow);
+  }
+
+  .wellness-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .wellness-gradient {
+    background: var(--wellness-gradient);
+  }
+
+  .hero-section {
+    background: var(--hero-gradient);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: var(--wellness-gradient);
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:opacity-90 hover:scale-105 shadow-lg;
+    box-shadow: 0 4px 14px -2px hsl(25 99% 59% / 0.4);
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:opacity-90;
+  }
+
+  .nav-link {
+    @apply text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200 font-medium;
+  }
+
+  .input-wellness {
+    @apply bg-card border-2 border-border rounded-xl px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 outline-none;
+  }
+
+  .status-available {
+    @apply bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-busy {
+    @apply bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .floating-label {
+    @apply absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-all duration-200 pointer-events-none;
+  }
+
+  .map-container {
+    @apply rounded-2xl overflow-hidden shadow-lg;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
